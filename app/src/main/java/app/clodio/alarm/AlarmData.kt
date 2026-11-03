@@ -1,17 +1,17 @@
-package app.clodio.model
+package app.clodio.alarm
 
 import java.time.LocalTime
 import kotlin.random.Random
 
-data class Alarm(
+data class AlarmData(
     val time: LocalTime,
     val name: String,
     val enabled: Boolean,
     val daysEnabled: MutableList<Boolean>
 ) {
     companion object {
-        fun getRandomAlarm(): Alarm {
-            return Alarm(
+        fun getRandomAlarm(): AlarmData {
+            return AlarmData(
                 time = LocalTime.of(
                     Random.nextInt(0, 24),
                     Random.nextInt(0, 60),
