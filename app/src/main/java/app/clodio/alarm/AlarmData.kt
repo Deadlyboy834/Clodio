@@ -6,8 +6,8 @@ import kotlin.random.Random
 data class AlarmData(
     val time: LocalTime,
     val name: String,
-    val enabled: Boolean,
-    val daysEnabled: MutableList<Boolean>
+    val daysEnabled: MutableList<Boolean>,
+    val enabled: Boolean
 ) {
     companion object {
         fun getRandomAlarm(): AlarmData {
