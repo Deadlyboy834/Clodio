@@ -1,46 +1,46 @@
 package app.clodio.alarm
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import app.clodio.ALARM_BOX_COLOR
+import app.clodio.ALARM_BOX_HEIGHT
+import app.clodio.ALARM_BOX_TIME_FONT_SIZE
+import app.clodio.ALARM_BOX_TIME_FONT_WEIGHT
+import app.clodio.ALARM_BOX_TIME_PADDING
+import app.clodio.ROUNDED_BOX
 
 @Composable
 fun AlarmBox(alarmData : AlarmData) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .height(100.dp)
+            .height(ALARM_BOX_HEIGHT)
             .background(
-                Color.LightGray,
-                shape = RoundedCornerShape(10.dp)
+                color = ALARM_BOX_COLOR,
+                shape = ROUNDED_BOX
             )
-            .clickable(
-                onClickLabel = "Open alarm",
-                role = Role.Button
-            ){
-
-            }
     ) {
         Text(
             text = alarmData.time.toString(),
-            fontSize = 20.sp,
-            fontWeight = FontWeight(100),
+            fontSize = ALARM_BOX_TIME_FONT_SIZE,
+            fontWeight = ALARM_BOX_TIME_FONT_WEIGHT,
             modifier = Modifier
                 .align(Alignment.CenterStart)
-                .padding(start = 10.dp)
+                .padding(start = ALARM_BOX_TIME_PADDING)
+        )
+
+        Switch(
+            checked = alarmData.enabled,
+            onCheckedChange = {alarmData.enabled = it}
         )
     }
 }

@@ -4,10 +4,10 @@ import java.time.LocalTime
 import kotlin.random.Random
 
 data class AlarmData(
-    val time: LocalTime,
-    val name: String,
-    val daysEnabled: MutableList<Boolean>,
-    val enabled: Boolean
+    var time: LocalTime,
+    var name: String,
+    var daysEnabled: MutableList<Boolean>,
+    var enabled: Boolean
 ) {
     companion object {
         fun getRandomAlarm(): AlarmData {
