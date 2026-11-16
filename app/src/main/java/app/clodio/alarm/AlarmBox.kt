@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import app.clodio.ALARM_BOX_COLOR
@@ -16,7 +18,7 @@ import app.clodio.ALARM_BOX_HEIGHT
 import app.clodio.ALARM_BOX_TIME_FONT_SIZE
 import app.clodio.ALARM_BOX_TIME_FONT_WEIGHT
 import app.clodio.ALARM_BOX_TIME_PADDING
-import app.clodio.ROUNDED_BOX
+import app.clodio.Constants.Boxes.ROUNDED_BOX
 
 @Composable
 fun AlarmBox(alarmData : AlarmData) {
@@ -39,8 +41,10 @@ fun AlarmBox(alarmData : AlarmData) {
         )
 
         Switch(
-            checked = alarmData.enabled,
-            onCheckedChange = {alarmData.enabled = it}
+            checked = alarmData.enabled.value,
+            onCheckedChange = {
+                alarmData.enabled.value = it
+            }
         )
     }
 }

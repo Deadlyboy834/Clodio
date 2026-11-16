@@ -8,8 +8,11 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-// Boxes
-val ROUNDED_BOX: RoundedCornerShape = RoundedCornerShape(10.dp)
+object Constants {
+    object Boxes {
+        val ROUNDED_BOX: RoundedCornerShape = RoundedCornerShape(10.dp)
+    }
+}
 
 // AlarmBox
 val ALARM_BOX_HEIGHT: Dp = 100.dp
